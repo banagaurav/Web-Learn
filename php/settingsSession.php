@@ -7,4 +7,5 @@ session_start();
 //set session variable
 $_SESSION["username"] = "john";
 $_SESSION["email"] = "ducky@gmail.com";
-echo ("Session variables are set.");
+
+echo ("Session variable is set.");
