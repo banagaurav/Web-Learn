@@ -30,24 +30,24 @@
             
             // Validate username field
             if (username === "") {
-                errorMessages.push("Username is required.");
+                alert("Username is required.");
             } else if (username.length < 5) {
-                errorMessages.push("Username must be at least 5 characters long.");
+                alert("Username must be at least 5 characters long.");
             }
 
             // Validate password field
             if (password === "") {
-                errorMessages.push("Password is required.");
+                alert("Password is required.");
             }
 
             // Validate gender radio button
             if (!gender) {
-                errorMessages.push("Please select your gender.");
+                alert("Please select your gender.");
             }
 
             // Validate hobbies checkbox
             if (hobbies.length === 0) {
-                errorMessages.push("Please select at least one hobby.");
+                alert("Please select at least one hobby.");
             }
 
             // Display error messages or submit the form
@@ -57,8 +57,6 @@
             } else {
                 errorMessagesContainer.innerHTML = "";
                 alert("Form submitted successfully!");
-                // You can submit the form here (or handle with AJAX etc.)
-                // e.g., document.getElementById('registrationForm').submit();
             }
         
         }
