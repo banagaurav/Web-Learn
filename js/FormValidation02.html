@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myForm()" onsubmit="return validation()">
+        Username: <input type="text" id="username" name="username"><br>
+        Password: <input type="password" id="password" name="password"><br>
+        Gender: <input type="radio"  name="gender" id="male" value="male">M
+            <input type="radio" name="gender"  id="female" value="female">F<br>
+            <label>Hobbies:</label><br>
+            <input type="checkbox" id="reading" name="hobbies" value="reading">
+            <label for="reading">Reading</label><br>
+            <input type="checkbox" id="sports" name="hobbies" value="sports">
+            <label for="sports">Sports</label><br><br>
+        <input type="submit" value="submit">
+    </form>
+
+    <script type="text/javascript">
+        function validation(){
+          // Client-side form validation
+            let errorMessages = [];
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let gender = document.querySelector('input[name="gender"]:checked');
+            let hobbies = document.querySelectorAll('input[name="hobbies"]:checked');
+            
+            // Validate username field
+            if (username === "") {
+                errorMessages.push("Username is required.");
+            } else if (username.length < 5) {
+                errorMessages.push("Username must be at least 5 characters long.");
+            }
+
+            // Validate password field
+            if (password === "") {
+                errorMessages.push("Password is required.");
+            }
+
+            // Validate gender radio button
+            if (!gender) {
+                errorMessages.push("Please select your gender.");
+            }
+
+            // Validate hobbies checkbox
+            if (hobbies.length === 0) {
+                errorMessages.push("Please select at least one hobby.");
+            }
+
+            // Display error messages or submit the form
+            let errorMessagesContainer = document.getElementById('errorMessages');
+            if (errorMessages.length > 0) {
+                errorMessagesContainer.innerHTML = errorMessages.join("<br>");
+            } else {
+                errorMessagesContainer.innerHTML = "";
+                alert("Form submitted successfully!");
+                // You can submit the form here (or handle with AJAX etc.)
+                // e.g., document.getElementById('registrationForm').submit();
+            }
+        
+        }
+    </script>
+</body>
+</html>
